@@ -1,0 +1,158 @@
+.container{
+    padding-bottom: 20px;
+    background: radial-gradient(black 15%, transparent 16%) 0 0,radial-gradient(black 15%, transparent 16%) 5px 5px,radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 0 1px,radial-gradient(rgba(255,255,255,.1) 15%, transparent 20%) 5px 6px;
+    background-color: #1b1b1b;
+    background-size: 10px 10px;
+    display: flex;
+    justify-content: center;   
+    
+
+    .envolveNoticias{
+        color: white;
+        padding: 20px;
+        width: 1170px;
+        // display: flex;
+
+        .titulo{
+            font-size: 30px;
+            border-color: #222;
+            box-shadow: 0 1px 0 rgb(255 255 255 / 10%);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .agrupaNoticias{
+            display: flex;       
+            // .noticiaComImg{
+
+            // }
+
+            .noticiaComImg{
+                position: relative;
+                display: flex;    
+                margin-right: 20px;  
+
+                a{         
+                    padding: 5px;
+                    border: 1px solid;
+                    cursor: pointer;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px 0;
+                    min-width: 248px;
+                    border-radius: 5px;
+
+                    .leiaMais{
+                        display: flex;
+                        justify-content: center;
+                        gap: 7px;
+
+                        background: rgba(255, 255, 255, 0.658);
+                        width: 100%;
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        color: rgb(0, 0, 0);
+                        transition: max-height 0s, opacity 0.3s;
+                        max-height: 0;
+                        overflow: hidden;
+                        border-radius: 5px 5px 0 0;
+                    }
+
+                    .envolveImagem{
+                        position: relative;
+                        height: 168px;
+                    }
+                }
+
+                a:hover{
+                    border-color: rgb(255, 28, 28);
+                    .leiaMais{
+                        transition: max-height 0.5s, opacity 0.3s;                    
+                        max-height: 300px;
+                        padding-bottom: 15px;
+                        z-index: 1;
+                        padding: 10px 0;
+                    }
+                }
+
+                p{
+                    padding: 5px;
+                }
+            }
+            .listaNoticias{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+
+
+                a{
+                    padding: 10px 20px;
+                    background: none;
+                    border-width: 0 0 1px 0;
+                    border-color: #222;
+                    box-shadow: 0 1px 0 #666;
+                    cursor: pointer;
+                    border-radius: 3px;             
+                }
+
+                a:hover{
+                    background-color: rgb(112, 112, 112);                    
+                }
+
+            }
+            
+            
+        }
+
+        .btMaisNoticias{
+            float: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+            border: solid;
+            border-width: 0 0 0.5px 0;
+            border-color: rgba(255, 255, 255, 0);
+            margin: 15px 15px 0 0;
+        }
+        .btMaisNoticias:hover{
+            border-color: rgb(255, 255, 255);
+        }
+    }
+}
+
+@media screen {
+
+    @media (max-width:767px) {
+        .agrupaNoticias{
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            .noticiaComImg{
+                width: 100%;
+                height: auto;
+                display: flex;
+                justify-content: center;
+
+                a{
+                    width: 100%;
+                    height: auto;
+                    justify-content: space-between;
+
+
+                    .envolveImagem{
+                        
+                        position: relative;
+                        width: 100% !important;
+                        height: 45vw !important;
+                    }
+                }
+            }
+        }
+        
+    }
+
+}

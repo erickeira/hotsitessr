@@ -1,0 +1,14 @@
+.listagemAnuncios{
+    background-color: white;
+    max-width: 1170px;
+    display: flex;
+    gap: 26.5px;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+.listagemSemAnuncio{
+    font-size: 25px;
+    padding: 10px;
+    text-align: center;
+}

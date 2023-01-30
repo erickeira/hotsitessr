@@ -1,0 +1,191 @@
+.container{
+
+    max-width: 1170px;
+
+    
+    margin: 0 auto;
+
+    padding-bottom: 100px;
+
+    position: relative;
+
+    .cardContatos{
+        margin-top: -50px;
+        margin-bottom: 75px;            
+    }    
+
+    .envolveBusca{
+    
+        .buscaVeiculos{
+            display: flex;
+            justify-content: space-between;
+            
+            .titulo {
+                font-size: 28px;
+                border-bottom: 1px solid;
+                border-color: rgb(216, 216, 216);
+                width: 550px;
+                display: flex;
+                align-items: flex-end;
+                padding-bottom: 15px;
+            }  
+        } 
+
+        .painelAnuncios{
+        
+            .anunciosDestaque{
+
+                .listagemAnuncios{
+                    background-color: white;
+                    max-width: 1170px;
+                    display: flex;
+                    gap: 26.5px;
+                    flex-wrap: wrap;
+                    padding: 10px 0;
+                }
+
+                .listagemSemAnuncio{
+                    font-size: 25px;
+                    padding: 10px;
+                    text-align: center;
+                }
+            } 
+        }
+    
+        .busca{
+            display: flex;
+            justify-content: space-between;
+            padding: 5px;
+            background-color: #EEE;
+            border-radius: 6px;
+            gap: 10px;
+    
+            .buscaMarcas{
+                width: 150px;
+            }
+            .buscaModelos{
+                width: 250px;
+            }
+            button{
+                display: flex;
+                align-items: center;
+                color: #fff;
+                background-color: red;
+                border-radius: 12px;
+                padding: 10px 30px;
+                cursor: pointer;
+    
+            }
+        }
+    }
+    .cardContatosMobile{
+        display: none;
+    }
+}
+
+@media screen {
+    @media (min-width: 1250px) {
+        .container{
+            .cardContatos{
+               display: block;
+            }  
+                    
+        }
+
+    }
+    @media (min-width: 995px) and (max-width: 1249px) {
+
+        .container{
+
+            max-width: 968px;
+
+            display: block;
+
+            .titulo{
+                width: 360px !important;
+            
+            }
+
+        }
+        
+    }
+
+    @media (min-width: 768px) and (max-width: 994px) {       
+        
+        .container{
+
+            max-width: 760px;
+
+            .cardContatos{
+                display: block;
+            }
+            
+            .titulo{
+                font-size: 20px !important;
+                padding-bottom: 15px;
+            
+            }
+
+            .envolveBusca{
+                .painelAnuncios{
+                    .anunciosDestaque{
+                        .listagemAnuncios{
+                            gap: 23.5px;
+                            padding: 20px 0;
+                        }
+                    }
+                }
+            } 
+        }
+        
+    }
+
+
+    @media (max-width:767px) {
+
+        .container{
+
+            // margin-top: -100px;
+
+            width: 90%;
+            min-width: 300px;
+
+            .cardContatos{
+                display: none;
+            }  
+
+            .envolveBusca{
+
+                .buscaVeiculos{
+                    flex-direction: column;
+                    gap: 10px 0;
+                }
+                .busca{
+                    display: flex;
+                    flex-direction: column;
+                    .buscaMarcas, .buscaModelos{
+                        width: 100%;
+                    }
+                    
+                    button{
+                        display: flex;
+                        justify-content: center;                        
+                    }
+                }
+
+                .titulo{
+                    width: 100% !important;
+                    justify-content: center;
+                }
+            }
+
+            .cardContatosMobile{
+                display: flex;
+                flex-direction: column;
+            }
+
+        }
+
+    }
+
+  }

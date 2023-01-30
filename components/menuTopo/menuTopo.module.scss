@@ -1,0 +1,329 @@
+
+// exemplo de criação de @mixin, para usar basta chamar @include tema
+// @mixin tema($corTematica: red) {
+//     background-color: $corTematica;
+//     display: flex;
+//     align-items: center;
+// }
+
+.bg01{
+    background-image: url("/img/slide/bg1.jpg");
+    height: 700px;
+}
+
+.bg02{
+    background-image: url("/img/slide/bg2.jpg");
+    height: 700px;
+}
+
+.bg03{
+    background-image: url("/img/slide/bg3.jpg");
+    height: 700px;
+}
+
+.container{
+
+    position: relative;
+    // background-image: url("/img/slide/slide1.png");
+    background-repeat:no-repeat;    
+    background-size:cover;
+    background-position: center;
+    padding-top: 30px;
+
+    .envolveMenu{
+        max-width: 1170px;
+        margin: 0 auto;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        position: relative;
+
+        .conteudoMenuTelaGrande{
+            background-color: white
+        }
+
+        .cardContatos{
+            position: absolute;
+            width: 100%;
+            bottom: -120px;
+        }
+        .linksMenu{
+            text-decoration: none;
+        }
+
+    }
+    
+}
+
+
+@media screen {
+    @media (min-width: 1250px) {
+        .container{ 
+
+            .conteudoMenuTelaGrande{                
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                display: flex;
+                align-items: center;
+                padding: 10px 35px;
+                justify-content: space-between;                
+                border-radius: 5px;          
+            }
+        
+            .logo{
+                cursor: pointer;
+                width: 210px;
+            }
+        
+            .links{
+                display: flex;
+                align-items: center;
+                gap: 0 45px;
+                cursor: pointer;
+                font-size: 16px;                
+            }          
+            
+        
+            .iconeInstagram{               
+                color: #FF02A3;
+                cursor: pointer;
+                font-size: 22px;
+            }
+        
+            .iconeFacebook{                  
+                color: #557ff3;
+                cursor: pointer;
+                font-size: 22px;
+            }
+        
+            .conteudoMenuTelaPequena{
+                display: none;
+            }
+                    
+        }
+
+    }
+    @media (min-width: 995px) and (max-width: 1249px) {
+
+        .container{
+
+            height: 508px;     
+
+            .envolveMenu{
+                max-width: 968px;
+                max-height: 508px;
+
+                .conteudoMenuTelaGrande{                
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    display: flex;
+                    align-items: center;
+                    padding: 10px 13px;
+                    justify-content: space-between;
+                    border-radius: 5px;                
+                }
+        
+                .logo{
+                    cursor: pointer;
+                    width: 170px;
+                }
+            
+                .links{
+                    display: flex;
+                    align-items: center;
+                    gap: 0 20px;
+                    cursor: pointer;
+                    font-size: 15px;
+                }
+            
+                .iconeInstagram{               
+                    color: #FF02A3;
+                    cursor: pointer;
+                    font-size: 20px;
+                }
+            
+                .iconeFacebook{                  
+                    color: #557ff3;
+                    cursor: pointer;
+                    font-size: 20px;
+                }
+            
+                .conteudoMenuTelaPequena{
+                    display: none;
+                }
+                
+            }
+
+        }
+        
+    }
+
+    @media (min-width: 768px) and (max-width: 994px) {
+
+        .container{
+
+            height: 450px;
+
+            .envolveMenu{
+                max-width: 760px;
+                max-height: 508px;
+                
+                .conteudoMenuTelaGrande{
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    display: flex;
+                    align-items: center;
+                    padding: 10px 10px;
+                    justify-content: space-between;
+                    border-radius: 5px;     
+                }
+        
+                .logo{
+                    cursor: pointer;
+                    width: 160px;
+                }
+            
+                .links{
+                    display: flex;
+                    align-items: center;
+                    gap: 0 15px;
+                    cursor: pointer;
+                    font-size: 12px;
+                }
+            
+                .iconeInstagram{               
+                    color: #FF02A3;
+                    cursor: pointer;
+                    font-size: 17px;
+                }
+            
+                .iconeFacebook{                  
+                    color: #557ff3;
+                    cursor: pointer;
+                    font-size: 17px;
+                    margin-right: 10px;
+                }
+            
+                .conteudoMenuTelaPequena{
+                    display: none;
+
+
+                }
+
+            }
+
+            
+        }
+        
+        
+        
+    }
+
+
+    @media (max-width:767px) {
+
+        .container{
+
+            .envolveMenu{
+
+                width: 90%;
+                height: 500px;
+
+                .conteudoMenuTelaGrande{
+                    display: none;
+                }  
+    
+                .conteudoMenuTelaPequena{
+                    min-height: 75px;
+                    background-color: white;
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    display: flex;
+                    padding: 0px 30px;
+                    justify-content: space-between;
+                    border-radius: 5px;
+                    font-size: 20px;
+        
+        
+                    .logo{
+                        // position: absolute;
+                        cursor: pointer;
+                        width: 100px;
+                    }
+            
+                    .MenuMobile{
+                        display: flex;
+                        flex-direction: column;
+                        right: 20px;
+        
+                        label{
+                            font-size: 30px;
+                            height: 75px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: flex-end;
+                            
+                        }
+                        
+                        // .redesSociais{
+                        //     margin-bottom: 10px;
+                        // }
+                
+                        .iconeInstagram{               
+                            color: #FF02A3;
+                            cursor: pointer;
+                            font-size: 40px;
+                            margin-right: 20px;
+                        }
+                    
+                        .iconeFacebook{                  
+                            color: #557ff3;
+                            cursor: pointer;
+                            font-size: 40px;
+                        }
+        
+                        ul{
+                            margin-top: 10px;
+                            display: none;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 20px 0;
+                            align-items: flex-end;
+                            list-style-type: none;
+                            white-space: nowrap;                                      
+                        }
+        
+                        .containerItensMenuMobileAberto{
+                            transition: max-height 0.5s, opacity 2s;                    
+                            max-height: 300px;        
+                            opacity: 1;
+                            padding-bottom: 15px;
+                        }
+        
+                        .containerItensMenuMobileFechado{
+                            max-height: 0;
+                            overflow: hidden;
+                            transition: max-height 0.5s opacity 0.5s;                   
+                            opacity: 0;
+                            
+                        }
+                        .botaoAbrirMenuMobile{
+                            height:  75px;
+                            width: 100%;
+                            display: flex;
+                            justify-content: flex-end;
+                            align-items: center;
+                        }
+        
+                    }           
+        
+                }
+
+                .cardContatos{
+                    display: none;
+                }
+
+            }
+
+        }
+
+    }
+
+  }
+
