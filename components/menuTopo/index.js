@@ -21,7 +21,7 @@ export default function Menu(props) {
     // evento.preventDefault()
     callbackchange(rota)
     router.push({
-      pathname: `/${rota == 'home' ? '/' : rota}`,
+      pathname: `/${rota.replace('home', '/')}`,
       query: { query: 'teste' }
     }, 
     undefined, { shallow: true }
