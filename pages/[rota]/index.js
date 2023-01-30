@@ -17,6 +17,7 @@ import { useRouter } from 'next/router';
 
 export default function  Home({data}) { 
   const [pageSelecionada, setPageSelecionada] = useState(data.rota || 'home')
+  console.log(data.rota)
   const router = useRouter()
 
 
@@ -40,8 +41,8 @@ export default function  Home({data}) {
   )
     
 }
-export async function getServerSideProps(){
-  
+export async function getServerSideProps({req, res}){
+  let rota = req.url
   try {
     let body = JSON.stringify({
       "acoes": 
@@ -70,7 +71,8 @@ export async function getServerSideProps(){
       body: body
     })
     
-    const data = await response.json()
+    let data = await response.json()
+    data['rota'] = rota.replace('/', '')
     return {    
       props: {data }
     }
