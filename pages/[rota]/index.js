@@ -42,7 +42,7 @@ export default function  Home({data}) {
     
 }
 export async function getServerSideProps({req, res}){
-  let rota = req.url
+  let rota = req.url.split('?')[0].replace('/', '')
   try {
     let body = JSON.stringify({
       "acoes": 
@@ -72,7 +72,7 @@ export async function getServerSideProps({req, res}){
     })
     
     let data = await response.json()
-    data['rota'] = rota.replace('/', '')
+    data['rota'] = rota
     return {    
       props: {data }
     }

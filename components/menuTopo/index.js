@@ -7,6 +7,7 @@ import { useRouter } from "next/router"
 import styles from "./menuTopo.module.scss"
 import { useEffect, useState } from 'react'
 import CardContato from '../cardContato'
+import Head from 'next/head'
 
 
 export default function Menu(props) { 
@@ -20,11 +21,18 @@ export default function Menu(props) {
     // evento.preventDefault()
     callbackchange(rota)
     router.push({
-      pathname: `/${rota}`,
+      pathname: `/${rota == 'home' ? '/' : rota}`,
       query: { query: 'teste' }
     }, 
     undefined, { shallow: true }
     )
+  }
+  const titulos = {
+    home : 'S.I Motors',
+    loja: 'Loja',
+    estoque: 'Estoque',
+    pedidos: 'Banco de Pedidos',
+    contato: 'Contato'
   }  
 
   const stylesPadrao = {
@@ -44,23 +52,26 @@ export default function Menu(props) {
       mudarSlide()
     }, 8000);
   }, [indexBg])    
-
-  console.log(`rota`, rota)
     return (
       
           <>
-
-          <div className={`${styles.container} ${rota == 'home' ? slides[indexBg] : ''}`}>
+          <Head>
+            <title>{titulos[rota] || 'S.I Motors'}</title>
+            <meta name="description" content="Desenvolvedor FullStack" />
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
+          <div className={`${styles.container} ${rota == 'home' || rota == '' ? slides[indexBg] : ''}`}>
             
             <div className={styles.envolveMenu}>
 
               <nav className={`backgroundPadrao ${styles.conteudoMenuTelaGrande}`}>
 
-                <Link className={styles.logo} href={`/`}>                  
+                <div className={styles.logo} onClick={(evento) => handleClick(evento, "home")} >                  
                 <Image width='190' height='100' alt="nomeSite" priority unoptimized src="/img/logo.jpg" loader={loaderImagensLocal}/>  
-                </Link>
+                </div>
                 <div className={styles.links}>
-                  <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "home")}  style={{color: rota == 'home' ? defaultColors.primary : defaultColors.secundary}}>
+                  <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "home")}  style={{color: rota == 'home' || rota == '' ? defaultColors.primary : defaultColors.secundary}}>
                     PAGÍNA INICIAL
                   </div>
                   <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "loja")} style={{color: rota == 'loja' ? defaultColors.primary : defaultColors.secundary}}>
