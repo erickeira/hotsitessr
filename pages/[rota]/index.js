@@ -5,7 +5,6 @@ import { lojaId, urlRequisicao, fetcher } from "../../utils";
 import ListagemVeiculos from '../../components/listagemVeiculos';
 import {BiSearch} from 'react-icons/bi'
 import Select from 'react-select'
-import styles from './rota.module.scss'
 import Noticias from '../../components/noticias';
 import CardContato from '../../components/cardContato';
 import Inicio from '../../components/inicio';
@@ -14,9 +13,12 @@ import Estoque from '../../components/estoque'
 import Loja from '../../components/loja'
 import Pedidos from '../../components/pedidos'
 import Menu from '../../components/menuTopo';
+import { useRouter } from 'next/router';
 
 export default function  Home({data}) { 
   const [pageSelecionada, setPageSelecionada] = useState(data.rota || 'home')
+  const router = useRouter()
+
 
   const pages = {
     home : <Inicio data={data}/>,
@@ -26,16 +28,20 @@ export default function  Home({data}) {
     contato: <Contato data={data.destaques}/>
   }
 
+  function mudarPage(e){
+    setPageSelecionada(e)
+  }
+
   return (
     <>
-    <Menu rota={data.rota}/>
-     {pages[data.rota] || pages.home}
+      <Menu callbackchange={e => mudarPage(e)} rota={pageSelecionada}/>
+      {pages[pageSelecionada] || pages.home}
     </>
   )
     
 }
-export async function getServerSideProps({req, res}){
-  let rota = req.url
+export async function getServerSideProps(){
+  
   try {
     let body = JSON.stringify({
       "acoes": 
@@ -64,9 +70,7 @@ export async function getServerSideProps({req, res}){
       body: body
     })
     
-    let data = await response.json()
-    data[`rota`] = rota.replace(`/`,``)
-    console.log(`data`,  data)
+    const data = await response.json()
     return {    
       props: {data }
     }

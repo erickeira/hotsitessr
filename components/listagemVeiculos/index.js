@@ -7,7 +7,7 @@ import styles from './listagemVeiculos.module.scss'
 export default function ListagemVeiculos({anuncios}) {  
   return(    
     
-    anuncios.length ? 
+    anuncios && anuncios.length ? 
     <div className={styles.listagemAnuncios}>
         {
         anuncios.map((anuncio, index) => {

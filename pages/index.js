@@ -14,28 +14,37 @@ import Estoque from '../components/estoque'
 import Loja from '../components/loja'
 import Pedidos from '../components/pedidos'
 import Menu from '../components/menuTopo';
+import { useRouter } from 'next/router';
 
 export default function  Home({data}) { 
-  const [pageSelecionada, setPageSelecionada] = useState('home')
+  const [pageSelecionada, setPageSelecionada] = useState(data.rota || 'home')
+  const router = useRouter()
+
 
   const pages = {
     home : <Inicio data={data}/>,
-    loja: <Loja/>,
-    estoque: <Estoque/>,
-    pedidos: <Pedidos/>,
-    contato: <Contato/>
+    loja: <Loja data={data.destaques}/>,
+    estoque: <Estoque data={data.destaques}/>,
+    pedidos: <Pedidos data={data.destaques}/>,
+    contato: <Contato data={data.destaques}/>
+  }
+
+  function mudarPage(e){
+    let page = e
+    if(page == 'home') router.replace('/')
+    setPageSelecionada(e)
   }
 
   return (
     <>
-    <Menu callbackchange={e => setPageSelecionada(e)} pageSelecionada={pageSelecionada}/>
-     {pages[pageSelecionada] || (<></>)}
+      <Menu callbackchange={e => mudarPage(e)} rota={data.rota}/>
+      {pages[pageSelecionada] || pages.home}
     </>
   )
     
 }
-export async function getServerSideProps(){
-  
+export async function getServerSideProps({req, res}){
+  let rota = req.url
   try {
     let body = JSON.stringify({
       "acoes": 
@@ -64,7 +73,8 @@ export async function getServerSideProps(){
       body: body
     })
     
-    const data = await response.json()
+    let data = await response.json()
+    data['rota'] = rota.replace('/', '')
     return {    
       props: {data }
     }
