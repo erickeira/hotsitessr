@@ -19,7 +19,12 @@ export default function Menu(props) {
   const handleClick = (evento, rota) => {
     // evento.preventDefault()
     callbackchange(rota)
-    router.replace(rota)
+    router.push({
+      pathname: `/${rota}`,
+      query: { query: 'teste' }
+    }, 
+    undefined, { shallow: true }
+    )
   }  
 
   const stylesPadrao = {
