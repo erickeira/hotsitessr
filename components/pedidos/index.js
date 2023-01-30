@@ -1,7 +1,9 @@
-export default function Pedidos () {
+import ListagemVeiculos from "../listagemVeiculos";
+
+export default function Pedidos (props) {
     return(        
         <div>
-            Pedidos
-        </div>        
+            <ListagemVeiculos anuncios={props.data}/>
+        </div>                    
     )
 }

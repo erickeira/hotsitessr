@@ -11,18 +11,12 @@ import CardContato from '../cardContato'
 
 export default function Menu(props) { 
   const router = useRouter()
-  const { callbackchange, pageSelecionada } = props
   const activeRoute = router.pathname
   const [menuAberto, setMenuAberto] = useState(false)
   const [indexBg, setIndexBg] = useState(0)
     
   const handleClick = (evento, rota) => {
-    evento.preventDefault()
-    callbackchange(rota)
-    router.push(rota)
-    router.replace({
-      query: { rota: rota },
-    });
+    // evento.preventDefault()
     // router.push(rota)
   }  
   const stylesPadrao = {
@@ -42,12 +36,11 @@ export default function Menu(props) {
       mudarSlide()
     }, 8000);
   }, [indexBg])    
-  
     return (
       
           <>
 
-          <div className={`${styles.container} ${pageSelecionada == 'home' ? slides[indexBg] : ''}`}>
+          <div className={`${styles.container} ${activeRoute == '/' ? slides[indexBg] : ''}`}>
             
             <div className={styles.envolveMenu}>
 
@@ -57,21 +50,21 @@ export default function Menu(props) {
                 <Image width='190' height='100' alt="nomeSite" priority unoptimized src="/img/logo.jpg" loader={loaderImagensLocal}/>  
                 </Link>
                 <div className={styles.links}>
-                  <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "home")}  style={{color: pageSelecionada == 'home' ? defaultColors.primary : defaultColors.secundary}}>
+                  <Link className={styles.linksMenu} href={'/'} onClick={(evento) => handleClick(evento, "/")}  style={{color: activeRoute == '/' ? defaultColors.primary : defaultColors.secundary}}>
                     PAGÍNA INICIAL
-                  </div>
-                  <div className={styles.linksMenu}  onClick={(evento) => handleClick(evento, "loja")} style={{color: pageSelecionada == 'loja' ? defaultColors.primary : defaultColors.secundary}}>
+                  </Link>
+                  <Link className={styles.linksMenu} href={'/loja'} onClick={(evento) => handleClick(evento, "/loja")} style={{color: props.rota == 'loja' ? defaultColors.primary : defaultColors.secundary}}>
                     A LOJA
-                  </div>
-                  <div className={styles.linksMenu}  onClick={(evento) => handleClick(evento, "estoque")} style={{color: pageSelecionada == 'estoque' ? defaultColors.primary : defaultColors.secundary}} >
+                  </Link>
+                  <Link className={styles.linksMenu} href={'/estoque'} onClick={(evento) => handleClick(evento, "/estoque")} style={{color: props.rota == 'estoque' ? defaultColors.primary : defaultColors.secundary}} >
                     NOSSO ESTOQUE
-                  </div>
-                  <div className={styles.linksMenu}  onClick={(evento) => handleClick(evento, "pedidos")} style={{color: pageSelecionada == 'pedidos' ? defaultColors.primary : defaultColors.secundary}}>
+                  </Link>
+                  <Link className={styles.linksMenu} href={'/pedidos'} onClick={(evento) => handleClick(evento, "/pedidos")} style={{color: props.rota == 'pedidos' ? defaultColors.primary : defaultColors.secundary}}>
                     BANCO DE PEDIDOS
-                  </div>
-                  <div className={styles.linksMenu}  onClick={(evento) => handleClick(evento, "contato")} style={{color: pageSelecionada == 'contato' ? defaultColors.primary : defaultColors.secundary}}>
+                  </Link>
+                  <Link className={styles.linksMenu} href={'/contato'} onClick={(evento) => handleClick(evento, "/contato")} style={{color: props.rota == 'contato' ? defaultColors.primary : defaultColors.secundary}}>
                     CONTATO
-                  </div>
+                  </Link>
                   <a href=''>
                     <FaInstagram className={styles.iconeInstagram}/>
                   </a>

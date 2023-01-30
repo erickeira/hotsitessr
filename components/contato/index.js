@@ -1,9 +1,9 @@
-export default function Contato () {
-    return(
-        <>
-            <div>
-                Contato
-            </div>            
-        </>
+import ListagemVeiculos from "../listagemVeiculos";
+
+export default function Contato (props) {
+    return(        
+        <div>
+            <ListagemVeiculos anuncios={props.data}/>
+        </div>                    
     )
 }

@@ -20,16 +20,16 @@ export default function  Home({data}) {
 
   const pages = {
     home : <Inicio data={data}/>,
-    loja: <Loja/>,
-    estoque: <Estoque/>,
-    pedidos: <Pedidos/>,
-    contato: <Contato/>
+    loja: <Loja data={data.destaques}/>,
+    estoque: <Estoque data={data.destaques}/>,
+    pedidos: <Pedidos data={data.destaques}/>,
+    contato: <Contato data={data.destaques}/>
   }
 
   return (
     <>
-    <Menu callbackchange={e => setPageSelecionada(e)} pageSelecionada={pageSelecionada}/>
-     {pages[pageSelecionada] || (<></>)}
+    <Menu rota={data.rota}/>
+     {pages[data.rota] || pages.home}
     </>
   )
     

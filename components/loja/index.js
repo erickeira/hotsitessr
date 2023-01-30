@@ -1,7 +1,9 @@
-export default function Loja () {
+import ListagemVeiculos from "../listagemVeiculos";
+
+export default function Loja (props) {
     return(        
         <div>
-            Loja
+            <ListagemVeiculos anuncios={props.data}/>
         </div>                    
     )
 }
