@@ -17,12 +17,9 @@ import Menu from '../components/menuTopo';
 import { useRouter } from 'next/router';
 
 export default function  Home({data}) { 
-  const [pageSelecionada, setPageSelecionada] = useState(data.rota || 'home')
-  const router = useRouter()
-
+  const [pageSelecionada, setPageSelecionada] = useState(data.rota || '')
 
   const pages = {
-    home : <Inicio data={data}/>,
     loja: <Loja data={data.destaques}/>,
     estoque: <Estoque data={data.destaques}/>,
     pedidos: <Pedidos data={data.destaques}/>,
@@ -35,10 +32,11 @@ export default function  Home({data}) {
 
   return (
     <>
-      <Menu callbackchange={e => mudarPage(e)} rota={data.rota}/>
-      {pages[pageSelecionada] || pages.home}
+      <Menu callbackchange={e => mudarPage(e)} rota={pageSelecionada}/>
+      {pages[pageSelecionada] || <Inicio data={data}/>}
     </>
   )
+   
     
 }
 export async function getServerSideProps({req, res}){

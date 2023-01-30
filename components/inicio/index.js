@@ -21,12 +21,6 @@ export default function  Inicio({data}) {
 
   useEffect(() => {
     setLoadingSelect(false)
-    router.push({
-      pathname: `/`,
-      query: { query: 'teste' }
-    }, 
-      undefined, { shallow: true }
-    )
   }, [])
   useEffect(() => {
     if(marca != "Marca")getModelos()

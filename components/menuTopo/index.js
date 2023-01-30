@@ -34,7 +34,7 @@ export default function Menu(props) {
     pedidos: 'Banco de Pedidos',
     contato: 'Contato'
   }  
-
+  console.log(rota)
   const stylesPadrao = {
     backgroundColor: defaultColors.primary
   }
@@ -61,17 +61,17 @@ export default function Menu(props) {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
-          <div className={`${styles.container} ${rota == 'home' || rota == '' ? slides[indexBg] : ''}`}>
+          <div className={`${styles.container} ${!titulos[rota]|| rota == '' ? slides[indexBg] : ''}`}>
             
             <div className={styles.envolveMenu}>
 
               <nav className={`backgroundPadrao ${styles.conteudoMenuTelaGrande}`}>
 
-                <div className={styles.logo} onClick={(evento) => handleClick(evento, "home")} >                  
+                <div className={styles.logo} onClick={(evento) => handleClick(evento, "")} >                  
                 <Image width='190' height='100' alt="nomeSite" priority unoptimized src="/img/logo.jpg" loader={loaderImagensLocal}/>  
                 </div>
                 <div className={styles.links}>
-                  <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "home")}  style={{color: rota == 'home' || rota == '' ? defaultColors.primary : defaultColors.secundary}}>
+                  <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "")}  style={{color: rota == 'home' || rota == '' ? defaultColors.primary : defaultColors.secundary}}>
                     PAGÍNA INICIAL
                   </div>
                   <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "loja")} style={{color: rota == 'loja' ? defaultColors.primary : defaultColors.secundary}}>
