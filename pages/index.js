@@ -30,8 +30,6 @@ export default function  Home({data}) {
   }
 
   function mudarPage(e){
-    let page = e
-    if(page == 'home') router.replace('/')
     setPageSelecionada(e)
   }
 
