@@ -7,11 +7,12 @@ import Select from 'react-select'
 import styles from './pageInicial.module.scss'
 import Noticias from '../noticias';
 import CardContato from '../cardContato';
+import { useRouter } from 'next/router';
 
 
 export default function  Inicio({data}) { 
   const {destaques, ultimasnoticias, marcas, dadosloja} = data
-  
+  const router = useRouter();
   const [marca, setMarca] = useState("Marca")
   const [modelos, setModelos] = useState([])
   const [modelo, setModelo] = useState("Modelo")
@@ -20,6 +21,12 @@ export default function  Inicio({data}) {
 
   useEffect(() => {
     setLoadingSelect(false)
+    router.push({
+      pathname: `/`,
+      query: { query: 'teste' }
+    }, 
+      undefined, { shallow: true }
+    )
   }, [])
   useEffect(() => {
     if(marca != "Marca")getModelos()
