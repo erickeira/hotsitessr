@@ -73,12 +73,14 @@ export default function  Inicio({data}) {
             <button type='submit'><BiSearch style={{fontSize: "17"}}/> Buscar </button>
           </form>
         </div>
-        <ListagemVeiculos anuncios={destaques}/>
+        <ListagemVeiculos anuncios={'destaques'}/>
       </div>    
       <div className={styles.cardContatosMobile}>
         <CardContato dadosloja={dadosloja}/>
       </div>
     </div>
+
+
     {    
       ultimasnoticias ?             
         <Noticias noticias={ultimasnoticias}/>

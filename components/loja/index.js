@@ -4,7 +4,7 @@ export default function Loja (props) {
     console.log(props.data)
     return(        
         <div>
-            <ListagemVeiculos anuncios={props.data}/>
+            <ListagemVeiculos anuncios={'destaques'}/>
         </div>                    
     )
 }

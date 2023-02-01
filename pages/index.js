@@ -20,10 +20,10 @@ export default function  Home({data}) {
   const [pageSelecionada, setPageSelecionada] = useState(data.rota || '')
 
   const pages = {
-    loja: <Loja data={data.destaques}/>,
-    estoque: <Estoque data={data.destaques}/>,
-    pedidos: <Pedidos data={data.destaques}/>,
-    contato: <Contato data={data.destaques}/>
+    loja: <Loja/>,
+    estoque: <Estoque/>,
+    pedidos: <Pedidos/>,
+    contato: <Contato/>
   }
 
   function mudarPage(e){

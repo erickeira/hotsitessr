@@ -24,17 +24,16 @@ export default function Menu(props) {
       pathname: `/${rota}`,
       query: { query: 'teste' }
     }, 
-    undefined, { shallow: true }
+    `/${rota}`, { shallow: true }
     )
   }
   const titulos = {
-    home : 'S.I Motors',
     loja: 'Loja',
     estoque: 'Estoque',
     pedidos: 'Banco de Pedidos',
     contato: 'Contato'
   }  
-  console.log(rota)
+
   const stylesPadrao = {
     backgroundColor: defaultColors.primary
   }
@@ -57,7 +56,7 @@ export default function Menu(props) {
           <>
           <Head>
             <title>{titulos[rota] || 'S.I Motors'}</title>
-            <meta name="description" content="Desenvolvedor FullStack" />
+            <meta name="description" content="Concessionária" />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
@@ -71,7 +70,7 @@ export default function Menu(props) {
                 <Image width='190' height='100' alt="nomeSite" priority unoptimized src="/img/logo.jpg" loader={loaderImagensLocal}/>  
                 </div>
                 <div className={styles.links}>
-                  <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "")}  style={{color: rota == 'home' || rota == '' ? defaultColors.primary : defaultColors.secundary}}>
+                  <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "")}  style={{color: !titulos[rota] || rota == '' ? defaultColors.primary : defaultColors.secundary}}>
                     PAGÍNA INICIAL
                   </div>
                   <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "loja")} style={{color: rota == 'loja' ? defaultColors.primary : defaultColors.secundary}}>
