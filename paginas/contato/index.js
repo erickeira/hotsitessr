@@ -1,6 +1,6 @@
-import ListagemVeiculos from "../listagemVeiculos";
+import ListagemVeiculos from "../../components/listagemVeiculos";
 
-export default function Estoque (props) {
+export default function Contato (props) {
     return(        
         <div>
             <ListagemVeiculos anuncios={'destaques'}/>

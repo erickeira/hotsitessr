@@ -34,5 +34,5 @@ const formatadorValor = (valor) => {
     return 'R$ ' + v;
 }
 
-export {defaultColors, loaderImagens, api, lojaId, urlRequisicao, loaderImagensLocal, formatadorValor};
+export {defaultColors, loaderImagens, api, lojaId, urlRequisicao, loaderImagensLocal, formatadorValor, urlImg};
 

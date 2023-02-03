@@ -1,5 +1,5 @@
 import {FaInstagram, FaFacebookSquare} from 'react-icons/fa'
-import {defaultColors, loaderImagensLocal} from '../../utils'
+import {defaultColors, loaderImagensLocal, urlImg} from '../../utils'
 import logo from '../../public/img/logo.jpg'
 import Image from "next/image"
 import Link from "next/link"
@@ -57,6 +57,7 @@ export default function Menu(props) {
           <Head>
             <title>{titulos[rota] || 'S.I Motors'}</title>
             <meta name="description" content="Concessionária" />
+            <meta property="og:image" content={`${urlImg}/img/logo.jpg`} />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <link rel="icon" href="/favicon.ico" />
           </Head>
@@ -70,7 +71,7 @@ export default function Menu(props) {
                 <Image width='190' height='100' alt="nomeSite" priority unoptimized src="/img/logo.jpg" loader={loaderImagensLocal}/>  
                 </div>
                 <div className={styles.links}>
-                  <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "")}  style={{color: !titulos[rota] || rota == '' ? defaultColors.primary : defaultColors.secundary}}>
+                  <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "inicio")}  style={{color: !titulos[rota] || rota == 'inicio' ? defaultColors.primary : defaultColors.secundary}}>
                     PAGÍNA INICIAL
                   </div>
                   <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "loja")} style={{color: rota == 'loja' ? defaultColors.primary : defaultColors.secundary}}>

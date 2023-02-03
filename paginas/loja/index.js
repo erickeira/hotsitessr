@@ -1,5 +1,4 @@
-import ListagemVeiculos from "../listagemVeiculos";
-
+import ListagemVeiculos from "../../components/listagemVeiculos";
 export default function Loja (props) {
     console.log(props.data)
     return(        

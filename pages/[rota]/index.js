@@ -5,13 +5,13 @@ import { lojaId, urlRequisicao, fetcher } from "../../utils";
 import ListagemVeiculos from '../../components/listagemVeiculos';
 import {BiSearch} from 'react-icons/bi'
 import Select from 'react-select'
-import Noticias from '../../components/noticias';
+import Noticias from '../../paginas/noticias';
 import CardContato from '../../components/cardContato';
-import Inicio from '../../components/inicio';
-import Contato from '../../components/contato'
-import Estoque from '../../components/estoque'
-import Loja from '../../components/loja'
-import Pedidos from '../../components/pedidos'
+import Inicio from '../../paginas/inicio';
+import Contato from '../../paginas/contato'
+import Estoque from '../../paginas/estoque'
+import Loja from '../../paginas/loja'
+import Pedidos from '../../paginas/pedidos'
 import Menu from '../../components/menuTopo';
 import { useRouter } from 'next/router';
 
@@ -28,6 +28,7 @@ export default function  Home({data}) {
   function mudarPage(e){
     setPageSelecionada(e)
   }
+
 
   return (
     <>
@@ -61,12 +62,12 @@ export async function getServerSideProps({req, res}){
       "loja": lojaId
     }) 
 
-    const response = await fetch(urlRequisicao,{
+    const response = await fetch("http://localhost:3000/api",{
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body
     })
-    
+
     let data = await response.json()
     data['rota'] = rota
     return {    

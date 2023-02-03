@@ -24,7 +24,7 @@ export default function ListagemVeiculos({anuncios}) {
       "loja": lojaId
     }) 
 
-    const response = await fetch(urlRequisicao,{
+    const response = await fetch("http://localhost:3000/api",{
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body

@@ -1,12 +1,12 @@
 
 import React, { useEffect, useState } from 'react'
 import { lojaId, urlRequisicao, fetcher } from "../../utils";
-import ListagemVeiculos from '../listagemVeiculos';
+import ListagemVeiculos from "../../components/listagemVeiculos";
 import {BiSearch} from 'react-icons/bi'
 import Select from 'react-select'
 import styles from './pageInicial.module.scss'
 import Noticias from '../noticias';
-import CardContato from '../cardContato';
+import CardContato from '../../components/cardContato';
 import { useRouter } from 'next/router';
 
 

@@ -6,20 +6,22 @@ import ListagemVeiculos from '../components/listagemVeiculos';
 import {BiSearch} from 'react-icons/bi'
 import Select from 'react-select'
 import styles from './pageInicial.module.scss'
-import Noticias from '../components/noticias';
+import Noticias from '../paginas/Noticias';
 import CardContato from '../components/cardContato';
-import Inicio from '../components/inicio';
-import Contato from '../components/contato'
-import Estoque from '../components/estoque'
-import Loja from '../components/loja'
-import Pedidos from '../components/pedidos'
+import Inicio from '../paginas/inicio';
+import Contato from '../paginas/contato'
+import Estoque from '../paginas/estoque'
+import Loja from '../paginas/loja'
+import Pedidos from '../paginas/pedidos'
 import Menu from '../components/menuTopo';
 import { useRouter } from 'next/router';
+import fs from 'fs';
 
 export default function  Home({data}) { 
   const [pageSelecionada, setPageSelecionada] = useState(data.rota || '')
 
-  const pages = {
+  let pages = {
+    inicio : <Inicio/>,
     loja: <Loja/>,
     estoque: <Estoque/>,
     pedidos: <Pedidos/>,
