@@ -6,7 +6,6 @@ import ListagemVeiculos from '../components/listagemVeiculos';
 import {BiSearch} from 'react-icons/bi'
 import Select from 'react-select'
 import styles from './pageInicial.module.scss'
-import Noticias from '../paginas/Noticias';
 import CardContato from '../components/cardContato';
 import Inicio from '../paginas/inicio';
 import Contato from '../paginas/contato'
