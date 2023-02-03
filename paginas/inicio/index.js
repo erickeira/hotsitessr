@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 
 
 export default function  Inicio({data}) { 
-  const {destaques, ultimasnoticias, marcas, dadosloja} = data
+  const {ultimasnoticias, marcas, dadosloja} = data
   const router = useRouter();
   const [marca, setMarca] = useState("Marca")
   const [modelos, setModelos] = useState([])
