@@ -6,7 +6,7 @@ const nextConfig = {
   //   runtime: "experimental-edge",
   //   appDir: true,
   // }  ,
-  runtime: "edge",
+  // runtime: "edge",
   webpack5: true,
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
