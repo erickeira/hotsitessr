@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 
 
 export default function  Home({data}) { 
-  const {ultimasnoticias, marcas, dadosloja} = data
+  // const {ultimasnoticias, marcas, dadosloja} = data
   const router = useRouter();
   const [marca, setMarca] = useState("Marca")
   const [modelos, setModelos] = useState([])
@@ -55,7 +55,7 @@ export default function  Home({data}) {
     
     <div className={styles.container}>
       <div className={styles.cardContatos}>
-        <CardContato dadosloja={dadosloja}/>
+        {/* <CardContato dadosloja={dadosloja}/> */}
       </div>
       <div className={styles.envolveBusca}>
         <div className={styles.buscaVeiculos}>
@@ -64,8 +64,8 @@ export default function  Home({data}) {
             {              
               !loadingSelect ?
               <>
-                <Select className={styles.buscaMarcas} options={marcas.map((marca, index) => {return { value: marca.mar_nome, label: marca.mar_nome }})} defaultValue={{ value: 'Marca', label: 'Marca' }} onChange={item => setMarca(item.value)}/>
-                <Select className={styles.buscaModelos} options={modelos.map((modelos, index) => {return { value: modelos.vei_modelo, label: modelos.vei_modelo}})} defaultValue={{ value: 'Modelo', label: 'Modelo'}} onChange={item => setModelo(item.value)} />
+                {/* <Select className={styles.buscaMarcas} options={marcas.map((marca, index) => {return { value: marca.mar_nome, label: marca.mar_nome }})} defaultValue={{ value: 'Marca', label: 'Marca' }} onChange={item => setMarca(item.value)}/>
+                <Select className={styles.buscaModelos} options={modelos.map((modelos, index) => {return { value: modelos.vei_modelo, label: modelos.vei_modelo}})} defaultValue={{ value: 'Modelo', label: 'Modelo'}} onChange={item => setModelo(item.value)} /> */}
               </>
               :
               null              
@@ -76,65 +76,12 @@ export default function  Home({data}) {
         <ListagemVeiculos anuncios={'destaques'}/>
       </div>    
       <div className={styles.cardContatosMobile}>
-        <CardContato dadosloja={dadosloja}/>
+        {/* <CardContato dadosloja={dadosloja}/> */}
       </div>
     </div>
 
 
-    {    
-      ultimasnoticias ?             
-        // <Noticias noticias={ultimasnoticias}/>
-        null
-      :
-      null
-    }    
     </>
   )
-}
-
-
-
-export async function getServerSideProps({req, res}){
-  let rota = req.url.split('?')[0].replace('/', '')
-  try {
-    let body = JSON.stringify({
-      "acoes": 
-        [
-          {
-            "acao": "dadosloja"
-          },
-          {
-            "acao": "destaques",
-            "params":{"resultados": 8 }
-          },
-          {
-            "acao": "ultimasnoticias",
-            "params":{"resultados": 7}
-          },
-          {
-            "acao": "marcas",
-          }         
-        ],
-      "loja": lojaId
-    }) 
-
-    const response = await fetch(urlRequisicao,{
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body
-    })
-    
-    let data = await response.json()
-    data['rota'] = rota.replace('/', '')
-    return {    
-      props: {data }
-    }
-
-  } catch(e) {
-    return {
-      notFound: true
-    }
-  } 
-  
 }
 
