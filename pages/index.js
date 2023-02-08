@@ -89,6 +89,9 @@ export default function  Home({dados}) {
     </>
   )
 }
+export const config = {
+  runtime: 'experimental-edge',
+}
 
 
 export async function getServerSideProps(context) {
