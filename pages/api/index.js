@@ -1,5 +1,8 @@
 import { urlRequisicao } from "../../utils"
 
+export const config = {
+  runtime: 'experimental-edge',
+}
 
 export default async function (req) {
   const body = req.body;

@@ -16,6 +16,7 @@ import Menu from '../../components/menuTopo';
 import { useRouter } from 'next/router';
 
 export default function  Home({data}) { 
+  return null
   const [pageSelecionada, setPageSelecionada] = useState(data.rota || '')
 
   const pages = {
@@ -38,47 +39,47 @@ export default function  Home({data}) {
   )
    
 }
-export async function getServerSideProps({req, res}){
-  let rota = req.url.split('?')[0].replace('/', '')
-  try {
-    let body = JSON.stringify({
-      "acoes": 
-        [
-          {
-            "acao": "dadosloja"
-          },
-          {
-            "acao": "destaques",
-            "params":{"resultados": 8 }
-          },
-          {
-            "acao": "ultimasnoticias",
-            "params":{"resultados": 7}
-          },
-          {
-            "acao": "marcas",
-          }         
-        ],
-      "loja": lojaId
-    }) 
+// export async function getServerSideProps({req, res}){
+//   let rota = req.url.split('?')[0].replace('/', '')
+//   try {
+//     let body = JSON.stringify({
+//       "acoes": 
+//         [
+//           {
+//             "acao": "dadosloja"
+//           },
+//           {
+//             "acao": "destaques",
+//             "params":{"resultados": 8 }
+//           },
+//           {
+//             "acao": "ultimasnoticias",
+//             "params":{"resultados": 7}
+//           },
+//           {
+//             "acao": "marcas",
+//           }         
+//         ],
+//       "loja": lojaId
+//     }) 
 
-    const response = await fetch("http://localhost:3000/api",{
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body
-    })
+//     const response = await fetch("http://localhost:3000/api",{
+//       method: 'POST',
+//       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+//       body: body
+//     })
 
-    let data = await response.json()
-    data['rota'] = rota
-    return {    
-      props: {data }
-    }
+//     let data = await response.json()
+//     data['rota'] = rota
+//     return {    
+//       props: {data }
+//     }
 
-  } catch(e) {
-    return {
-      notFound: true
-    }
-  } 
+//   } catch(e) {
+//     return {
+//       notFound: true
+//     }
+//   } 
   
-}
+// }
 
