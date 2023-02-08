@@ -71,7 +71,7 @@ export default function Menu(props) {
                 <Image width='190' height='100' alt="nomeSite" priority unoptimized src="/img/logo.jpg" loader={loaderImagensLocal}/>  
                 </div>
                 <div className={styles.links}>
-                  <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "inicio")}  style={{color: !titulos[rota] || rota == 'inicio' ? defaultColors.primary : defaultColors.secundary}}>
+                  {/* <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "inicio")}  style={{color: !titulos[rota] || rota == 'inicio' ? defaultColors.primary : defaultColors.secundary}}>
                     PAGÍNA INICIAL
                   </div>
                   <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "loja")} style={{color: rota == 'loja' ? defaultColors.primary : defaultColors.secundary}}>
@@ -85,7 +85,22 @@ export default function Menu(props) {
                   </div>
                   <div className={styles.linksMenu} onClick={(evento) => handleClick(evento, "contato")} style={{color: rota == 'contato' ? defaultColors.primary : defaultColors.secundary}}>
                     CONTATO
-                  </div>
+                  </div> */}
+                  <Link className={styles.linksMenu} href="/"  style={{color: !titulos[rota] || rota == 'inicio' ? defaultColors.primary : defaultColors.secundary}}>
+                    PAGÍNA INICIAL
+                  </Link>
+                  <Link className={styles.linksMenu} href="/loja" style={{color: rota == 'loja' ? defaultColors.primary : defaultColors.secundary}}>
+                    A LOJA
+                  </Link>
+                  <Link className={styles.linksMenu} href="/estoque"  style={{color: rota == 'estoque' ? defaultColors.primary : defaultColors.secundary}} >
+                    NOSSO ESTOQUE
+                  </Link>
+                  <Link className={styles.linksMenu} href="/pedidos"  style={{color: rota == 'pedidos' ? defaultColors.primary : defaultColors.secundary}}>
+                    BANCO DE PEDIDOS
+                  </Link>
+                  <Link className={styles.linksMenu} href="/contato" style={{color: rota == 'contato' ? defaultColors.primary : defaultColors.secundary}}>
+                    CONTATO
+                  </Link>
                   <a href=''>
                     <FaInstagram className={styles.iconeInstagram}/>
                   </a>

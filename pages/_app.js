@@ -7,7 +7,7 @@ import { BrowserRouter } from 'react-router-dom';
 export default function App({ Component, pageProps }) {
   return(
       <div>
-        {/* <Menu/> */}
+        <Menu/>
         <div className={styles.container}>
           <Component {...pageProps} /> 
         </div>     

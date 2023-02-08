@@ -32,7 +32,7 @@ export default function  Home({data}) {
 
   return (
     <>
-      <Menu callbackchange={e => mudarPage(e)} rota={pageSelecionada}/>
+      {/* <Menu callbackchange={e => mudarPage(e)} rota={pageSelecionada}/> */}
       {pages[pageSelecionada] || <Inicio data={data}/>}
     </>
   )
