@@ -2,10 +2,10 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  // experimental: {    
-  //   // runtime: "experimental-edge",
-  //   appDir: true,
-  // }  ,
+  experimental: {    
+    runtime: "experimental-edge",
+    appDir: true,
+  }  ,
   runtime: "experimental-edge",
   webpack5: true,
   webpack: (config) => {
