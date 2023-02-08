@@ -10,7 +10,12 @@ import CardContato from '../components/cardContato';
 import { useRouter } from 'next/router';
 
 
-export default function  Home({data}) { 
+export default function  Home({dados}) {
+  return(
+    <div>
+      {dados}
+    </div>
+  ) 
   // const {ultimasnoticias, marcas, dadosloja} = data
   const router = useRouter();
   const [marca, setMarca] = useState("Marca")
@@ -85,3 +90,10 @@ export default function  Home({data}) {
   )
 }
 
+
+export async function getServerSideProps(context) {
+  let dados = "server side"
+  return {
+    props: { dados }, // will be passed to the page component as props
+  }
+}
