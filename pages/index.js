@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react'
-import { lojaId, urlRequisicao, fetcher } from "../utils";
+import { lojaId, urlRequisicao, fetcher, urlImg } from "../utils";
 import ListagemVeiculos from "../components/listagemVeiculos";
 import {BiSearch} from 'react-icons/bi'
 import Select from 'react-select'
@@ -8,14 +8,11 @@ import styles from './pageInicial.module.scss'
 // import Noticias from '../noticias';
 import CardContato from '../components/cardContato';
 import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 
 export default function  Home() {
-  return(
-    <div>
-      Teste
-    </div>
-  ) 
+
   // const {ultimasnoticias, marcas, dadosloja} = data
   const router = useRouter();
   const [marca, setMarca] = useState("Marca")
@@ -57,7 +54,13 @@ export default function  Home() {
   return(    
 
     <>      
-    
+    <Head>
+      <title>S.I Motors</title>
+      <meta name="description" content="Concessionária" />
+      <meta property="og:image" content={`${urlImg}/img/logo.jpg`} />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
     <div className={styles.container}>
       <div className={styles.cardContatos}>
         {/* <CardContato dadosloja={dadosloja}/> */}
